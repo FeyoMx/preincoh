@@ -1,0 +1,36 @@
+<svg viewBox="0 0 1920 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .gradient-segment { fill: none; }
+      .divider-line { stroke: #FF6600; stroke-width: 6; }
+      .dot { fill: #FF6600; }
+    </style>
+    <linearGradient id="navyGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#003366;stop-opacity:0"/>
+      <stop offset="100%" style="stop-color:#003366;stop-opacity:0.5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="200" fill="white"/>
+
+  <!-- Gradient overlay -->
+  <rect width="1920" height="200" fill="url(#navyGradient)"/>
+
+  <!-- Central divider line -->
+  <line class="divider-line" x1="0" y1="100" x2="1920" y2="100"/>
+
+  <!-- Accent dots -->
+  <circle class="dot" cx="80" cy="100" r="8"/>
+  <circle class="dot" cx="240" cy="100" r="8"/>
+  <circle class="dot" cx="400" cy="100" r="8"/>
+  <circle class="dot" cx="560" cy="100" r="8"/>
+  <circle class="dot" cx="720" cy="100" r="8"/>
+  <circle class="dot" cx="880" cy="100" r="8"/>
+  <circle class="dot" cx="1040" cy="100" r="8"/>
+  <circle class="dot" cx="1200" cy="100" r="8"/>
+  <circle class="dot" cx="1360" cy="100" r="8"/>
+  <circle class="dot" cx="1520" cy="100" r="8"/>
+  <circle class="dot" cx="1680" cy="100" r="8"/>
+  <circle class="dot" cx="1840" cy="100" r="8"/>
+</svg>

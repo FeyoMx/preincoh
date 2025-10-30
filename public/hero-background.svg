@@ -1,0 +1,85 @@
+<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .grid-light { fill: #F0F0F0; stroke: #003366; stroke-width: 2; }
+      .grid-white { fill: white; stroke: #336699; stroke-width: 1; }
+      .accent-orange { stroke: #FF6600; stroke-width: 3; fill: none; }
+      .accent-navy { stroke: #003366; stroke-width: 4; fill: none; }
+      .accent-navy-small { stroke: #FF6600; stroke-width: 2; fill: none; }
+      .circle-navy { stroke: #336699; stroke-width: 3; fill: none; }
+      .circle-orange { stroke: #FF6600; stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="white"/>
+
+  <!-- Modular grid pattern -->
+  <g id="grid">
+    <rect class="grid-light" x="0" y="0" width="240" height="240"/>
+    <rect class="grid-white" x="240" y="0" width="240" height="240"/>
+    <rect class="grid-white" x="480" y="0" width="240" height="240"/>
+    <rect class="grid-light" x="720" y="0" width="240" height="240"/>
+    <rect class="grid-white" x="960" y="0" width="240" height="240"/>
+    <rect class="grid-light" x="1200" y="0" width="240" height="240"/>
+    <rect class="grid-white" x="1440" y="0" width="240" height="240"/>
+    <rect class="grid-light" x="1680" y="0" width="240" height="240"/>
+
+    <rect class="grid-white" x="0" y="240" width="240" height="240"/>
+    <rect class="grid-light" x="240" y="240" width="240" height="240"/>
+    <rect class="grid-light" x="480" y="240" width="240" height="240"/>
+    <rect class="grid-white" x="720" y="240" width="240" height="240"/>
+    <rect class="grid-light" x="960" y="240" width="240" height="240"/>
+    <rect class="grid-white" x="1200" y="240" width="240" height="240"/>
+    <rect class="grid-light" x="1440" y="240" width="240" height="240"/>
+    <rect class="grid-white" x="1680" y="240" width="240" height="240"/>
+
+    <rect class="grid-light" x="0" y="480" width="240" height="240"/>
+    <rect class="grid-white" x="240" y="480" width="240" height="240"/>
+    <rect class="grid-white" x="480" y="480" width="240" height="240"/>
+    <rect class="grid-light" x="720" y="480" width="240" height="240"/>
+    <rect class="grid-white" x="960" y="480" width="240" height="240"/>
+    <rect class="grid-light" x="1200" y="480" width="240" height="240"/>
+    <rect class="grid-white" x="1440" y="480" width="240" height="240"/>
+    <rect class="grid-light" x="1680" y="480" width="240" height="240"/>
+
+    <rect class="grid-white" x="0" y="720" width="240" height="240"/>
+    <rect class="grid-light" x="240" y="720" width="240" height="240"/>
+    <rect class="grid-light" x="480" y="720" width="240" height="240"/>
+    <rect class="grid-white" x="720" y="720" width="240" height="240"/>
+    <rect class="grid-light" x="960" y="720" width="240" height="240"/>
+    <rect class="grid-white" x="1200" y="720" width="240" height="240"/>
+    <rect class="grid-light" x="1440" y="720" width="240" height="240"/>
+    <rect class="grid-white" x="1680" y="720" width="240" height="240"/>
+  </g>
+
+  <!-- Diagonal architectural lines -->
+  <line class="accent-orange" x1="0" y1="-200" x2="800" y2="1280"/>
+  <line class="accent-orange" x1="400" y1="-200" x2="1200" y2="1280"/>
+  <line class="accent-orange" x1="800" y1="-200" x2="1600" y2="1280"/>
+  <line class="accent-orange" x1="1200" y1="-200" x2="2000" y2="1280"/>
+  <line class="accent-orange" x1="1600" y1="-200" x2="2400" y2="1280"/>
+
+  <!-- Geometric squares -->
+  <rect class="accent-navy" x="200" y="150" width="280" height="280"/>
+  <rect class="accent-navy-small" x="240" y="190" width="200" height="200"/>
+
+  <rect class="accent-navy" x="650" y="150" width="280" height="280"/>
+  <rect class="accent-navy-small" x="690" y="190" width="200" height="200"/>
+
+  <rect class="accent-navy" x="1100" y="150" width="280" height="280"/>
+  <rect class="accent-navy-small" x="1140" y="190" width="200" height="200"/>
+
+  <rect class="accent-navy" x="1550" y="150" width="280" height="280"/>
+  <rect class="accent-navy-small" x="1590" y="190" width="200" height="200"/>
+
+  <!-- Circular elements -->
+  <circle class="circle-navy" cx="300" cy="700" r="80"/>
+  <circle class="circle-orange" cx="300" cy="700" r="40"/>
+
+  <circle class="circle-navy" cx="900" cy="700" r="80"/>
+  <circle class="circle-orange" cx="900" cy="700" r="40"/>
+
+  <circle class="circle-navy" cx="1500" cy="700" r="80"/>
+  <circle class="circle-orange" cx="1500" cy="700" r="40"/>
+</svg>

@@ -1,0 +1,468 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-dark: #003366;
+  --accent-orange: #FF6600;
+  --accent-orange-dark: #cc5200;
+  --accent-orange-light: #ff9933;
+  --secondary-gray: #A9A9A9;
+  --text-dark: #1a1a1a;
+  --text-light: #ffffff;
+  --border-radius: 0.5rem;
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+  --text-dark: #f3f4f6;
+  --text-light: #111827;
+  --primary-dark: #0066cc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--text-light);
+  color: var(--text-dark);
+  font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: #111827;
+  color: #f3f4f6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Estilos globales para animaciones - Optimized timing */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Estilos para el botón de WhatsApp */
+.whatsapp-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-orange);
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 102, 0, 0.4);
+}
+
+/* Scroll bar personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-dark);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-orange);
+}
+
+/* Tipografía Moderna */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+h2 {
+  font-size: 2.5rem;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+h3 {
+  font-size: 1.875rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+p {
+  font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Botones Modernos y Juveniles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+  letter-spacing: 0.3px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, #ff8533 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(255, 102, 0, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #0a4a80 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 51, 102, 0.2);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 51, 102, 0.3);
+}
+
+.btn-secondary:active {
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--accent-orange);
+  border: 2.5px solid var(--accent-orange);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-orange);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.btn-outline:hover::before {
+  left: 0;
+}
+
+.btn-outline:hover {
+  color: white;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(255, 102, 0, 0.3);
+}
+
+/* Contenedor */
+.container-custom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Efecto ripple para botones */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.ripple:active::after {
+  animation: rippleAnimation 0.6s ease-out;
+}
+
+@keyframes rippleAnimation {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+/* Blob animation for Hero background */
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+.animate-blob {
+  animation: blob 20s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+/* Skip to main content link for accessibility */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1rem 1.5rem;
+  background-color: var(--accent-orange);
+  color: white;
+  text-decoration: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.skip-to-main:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+}
+
+/* Estilos para Logo sin Fondo */
+.logo-image {
+  filter: drop-shadow(0 12px 35px rgba(0, 51, 102, 0.35))
+          drop-shadow(0 6px 18px rgba(255, 102, 0, 0.22))
+          brightness(0.97)
+          contrast(1.12)
+          saturate(1.15);
+  transition: all 0.3s ease;
+  background: transparent;
+  mix-blend-mode: multiply;
+}
+
+.logo-image:hover {
+  filter: drop-shadow(0 18px 45px rgba(255, 102, 0, 0.4))
+          drop-shadow(0 10px 25px rgba(0, 51, 102, 0.3))
+          brightness(0.94)
+          contrast(1.15)
+          saturate(1.2);
+}
+
+/* Alternativa: si necesitas remover completamente el fondo blanco */
+.logo-transparent {
+  background: transparent !important;
+  mix-blend-mode: multiply;
+}
+
+/* Estilos modernos adicionales */
+.modern-gradient {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #0a4a80 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--accent-orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Sombras modernas */
+.shadow-modern {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-hover {
+  transition: box-shadow 0.3s ease;
+}
+
+.shadow-hover:hover {
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.12);
+}
+
+/* DARK MODE STYLES */
+.dark {
+  background-color: #111827;
+  color: #f3f4f6;
+}
+
+.dark section {
+  background: linear-gradient(135deg, rgba(17, 24, 39, 1), rgba(31, 41, 55, 1)) !important;
+}
+
+.dark section:nth-child(even) {
+  background: linear-gradient(135deg, rgba(31, 41, 55, 1), rgba(17, 24, 39, 1)) !important;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f3f4f6;
+}
+
+.dark p, .dark span {
+  color: #d1d5db;
+}
+
+.dark a {
+  color: var(--accent-orange);
+}
+
+.dark .bg-white {
+  background-color: #1f2937;
+}
+
+.dark .bg-gray-50,
+.dark .bg-slate-50,
+.dark .from-white,
+.dark .via-slate-50,
+.dark .to-blue-50 {
+  background-color: #1f2937 !important;
+}
+
+.dark .border-gray-200 {
+  border-color: #374151;
+}
+
+.dark .text-gray-700 {
+  color: #d1d5db;
+}
+
+.dark .text-gray-600 {
+  color: #9ca3af;
+}
+
+.dark .text-primary-dark {
+  color: #60a5fa;
+}
+
+.dark .bg-gradient-to-br {
+  background: linear-gradient(135deg, #1f2937, #111827) !important;
+}
+
+.dark .from-blue-50,
+.dark .to-blue-100 {
+  background: linear-gradient(135deg, #1f2937, #374151) !important;
+}
+
+.dark .from-orange-50,
+.dark .to-orange-100 {
+  background: linear-gradient(135deg, #7c2d12, #5a2a0c) !important;
+}
+
+.dark .from-gray-50,
+.dark .to-gray-100 {
+  background: linear-gradient(135deg, #374151, #1f2937) !important;
+}
+
+.dark .border-blue-200 {
+  border-color: #3b82f6 !important;
+}
+
+.dark .border-orange-200 {
+  border-color: #ff8533 !important;
+}
+
+.dark .border-gray-200 {
+  border-color: #374151;
+}
+
+.dark .bg-orange-100 {
+  background-color: #7c2d12 !important;
+}
+
+.dark .bg-blue-100 {
+  background-color: #1e3a8a !important;
+}
+
+.dark .btn-primary {
+  background: linear-gradient(135deg, var(--accent-orange) 0%, #ff8533 100%);
+}
+
+.dark .btn-secondary {
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+}
+
+.dark .shadow-lg {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.dark .container-custom {
+  color: #d1d5db;
+}

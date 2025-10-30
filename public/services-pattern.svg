@@ -1,0 +1,44 @@
+<svg viewBox="0 0 1400 1400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .grid-line { stroke: rgba(0, 51, 102, 0.3); stroke-width: 1; }
+      .circle-accent { stroke: rgba(255, 102, 0, 0.25); stroke-width: 2; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Grid pattern -->
+  <g id="grid" class="grid-line">
+    <!-- Vertical lines -->
+    <line x1="0" y1="0" x2="0" y2="1400"/>
+    <line x1="140" y1="0" x2="140" y2="1400"/>
+    <line x1="280" y1="0" x2="280" y2="1400"/>
+    <line x1="420" y1="0" x2="420" y2="1400"/>
+    <line x1="560" y1="0" x2="560" y2="1400"/>
+    <line x1="700" y1="0" x2="700" y2="1400"/>
+    <line x1="840" y1="0" x2="840" y2="1400"/>
+    <line x1="980" y1="0" x2="980" y2="1400"/>
+    <line x1="1120" y1="0" x2="1120" y2="1400"/>
+    <line x1="1260" y1="0" x2="1260" y2="1400"/>
+    <line x1="1400" y1="0" x2="1400" y2="1400"/>
+
+    <!-- Horizontal lines -->
+    <line x1="0" y1="0" x2="1400" y2="0"/>
+    <line x1="0" y1="140" x2="1400" y2="140"/>
+    <line x1="0" y1="280" x2="1400" y2="280"/>
+    <line x1="0" y1="420" x2="1400" y2="420"/>
+    <line x1="0" y1="560" x2="1400" y2="560"/>
+    <line x1="0" y1="700" x2="1400" y2="700"/>
+    <line x1="0" y1="840" x2="1400" y2="840"/>
+    <line x1="0" y1="980" x2="1400" y2="980"/>
+    <line x1="0" y1="1120" x2="1400" y2="1120"/>
+    <line x1="0" y1="1260" x2="1400" y2="1260"/>
+    <line x1="0" y1="1400" x2="1400" y2="1400"/>
+  </g>
+
+  <!-- Organic circles - modular growth pattern -->
+  <circle class="circle-accent" cx="350" cy="350" r="400"/>
+  <circle class="circle-accent" cx="1050" cy="350" r="450"/>
+  <circle class="circle-accent" cx="700" cy="1050" r="500"/>
+  <circle class="circle-accent" cx="175" cy="1050" r="350"/>
+  <circle class="circle-accent" cx="1225" cy="1050" r="380"/>
+</svg>

@@ -1,0 +1,122 @@
+# ===== DEPENDENCIES =====
+node_modules/
+/.pnp
+.pnp.js
+pnpm-lock.yaml
+
+# ===== TESTING =====
+/coverage
+/test-results/
+/.nyc_output
+
+# ===== NEXT.JS & BUILD =====
+/.next/
+/out/
+/build/
+/dist/
+
+# ===== PRODUCTION =====
+*.tsbuildinfo
+
+# ===== ENVIRONMENT =====
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ===== IDE & EDITOR =====
+.idea/
+.vscode/
+.vscode-settings.json
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.sublime-project
+.DS_Store
+
+# ===== OS =====
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ===== LOGS =====
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# ===== VERCEL & DEPLOYMENT =====
+.vercel
+.vercel/
+
+# ===== TEMPORARY FILES =====
+*.tmp
+*.temp
+tmp/
+temp/
+*.cache
+.eslintcache
+.stylelintcache
+
+# ===== SCREENSHOTS & TEST OUTPUT =====
+/screenshots/
+lighthouse-report.json
+
+# ===== PYTHON UTILITIES =====
+*.pyc
+__pycache__/
+*.egg-info/
+*.egg
+.Python
+venv/
+.venv/
+env/
+
+# ===== UTILITY SCRIPTS & GENERATED FILES =====
+remove_background.py
+remove_background_advanced.py
+organize.sh
+capture-screenshots.js
+test-lighthouse.js
+verify-improvements.js
+generate-assets.js
+organize.sh
+STRUCTURE_SUMMARY.txt
+verify-structure.sh
+
+# ===== DEVELOPMENT ONLY =====
+scripts/test-*.js
+scripts/temp-*.js
+/analytics/
+
+# ===== CLAUDE CODE - DEVELOPMENT ONLY =====
+.claude/
+
+# ===== KEEP FOR VERCEL DEPLOYMENT =====
+!package.json
+!package-lock.json
+!tsconfig.json
+!next.config.ts
+!tailwind.config.ts
+!postcss.config.mjs
+!vercel.json
+!.env.example
+!.gitignore
+!public/
+!app/
+!components/
+docs/
+!config/
+!scripts/
+!README.md
+!next-env.d.ts
