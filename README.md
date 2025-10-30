@@ -481,7 +481,7 @@ Para sugerencias o mejoras:
 - [x] Documentación completa
 - [x] Projeto organizado
 
---
+---
 
 <div align="center">
 
