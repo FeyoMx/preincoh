@@ -31,16 +31,15 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-slate-50 to-blue-50 relative overflow-hidden">
-      {/* Background decorative elements - will-change for GPU acceleration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-orange-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob will-change-transform" />
-      <div className="absolute -bottom-8 left-20 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000 will-change-transform" />
+      {/* Background decorative elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-orange-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
+      <div className="absolute -bottom-8 left-20 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
 
       <motion.div
         className="container-custom relative z-10 py-16 md:py-24 lg:py-32"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        style={{ transform: 'translateZ(0)' }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Content */}
