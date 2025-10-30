@@ -5,7 +5,7 @@
   "framework": "nextjs",
   "outputDirectory": ".next",
   "env": {
-    "NEXT_PUBLIC_BASE_URL": "preincohlandingpage.vercel.app"
+    "NEXT_PUBLIC_BASE_URL": "preincoh.vercel.app"
   },
   "functions": {
     "app/api/**": {
