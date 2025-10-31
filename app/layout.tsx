@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   keywords: ['prefabricados', 'materiales construcción', 'Hidalgo', 'asesoría', 'arquitectos', 'construcción'],
   authors: [{ name: 'Preincoh' }],
   creator: 'Preincoh',
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     type: 'website',
     locale: 'es_MX',
@@ -62,6 +65,85 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#003366" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+        {/* JSON-LD Structured Data for LocalBusiness */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              '@id': process.env.NEXT_PUBLIC_BASE_URL || 'https://preincoh.mx',
+              name: 'Preincoh',
+              alternateName: 'Preincoh - Prefabricados e Insumos para la Construcción de Hidalgo',
+              description: 'Prefabricados e Insumos para la Construcción de Hidalgo. Asesoría experta, precios competitivos y servicio personalizado.',
+              url: process.env.NEXT_PUBLIC_BASE_URL || 'https://preincoh.mx',
+              telephone: '+52-771-241-6450',
+              email: 'preincoh@gmail.com',
+              image: '/logopreincoh.png',
+              logo: {
+                '@type': 'ImageObject',
+                url: '/logopreincoh.png',
+                width: 500,
+                height: 500,
+              },
+              address: {
+                '@type': 'PostalAddress',
+                addressRegion: 'Hidalgo',
+                addressCountry: 'MX',
+              },
+              areaServed: {
+                '@type': 'State',
+                name: 'Hidalgo',
+              },
+              priceRange: '$$',
+              sameAs: [
+                'https://facebook.com/preincoh',
+                'https://instagram.com/preincoh',
+              ],
+            }),
+          }}
+        />
+
+        {/* JSON-LD Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Preincoh',
+              url: process.env.NEXT_PUBLIC_BASE_URL || 'https://preincoh.mx',
+              logo: '/logopreincoh.png',
+              description: 'Prefabricados e Insumos para la Construcción de Hidalgo',
+              sameAs: [
+                'https://facebook.com/preincoh',
+                'https://instagram.com/preincoh',
+              ],
+              contact: {
+                '@type': 'ContactPoint',
+                contactType: 'Customer Service',
+                telephone: '+52-771-241-6450',
+                email: 'preincoh@gmail.com',
+              },
+            }),
+          }}
+        />
+
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9DP6P39NFM" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-9DP6P39NFM', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
       </head>
       <body className="antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
         <ThemeToggle />
