@@ -4,7 +4,6 @@ import Services from '@/components/Services'
 import Benefits from '@/components/Benefits'
 import ContactForm from '@/components/ContactForm'
 import Footer from '@/components/Footer'
-import WhatsAppButton from '@/components/WhatsAppButton'
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
       <Benefits />
       <ContactForm />
       <Footer />
-      <WhatsAppButton />
     </main>
   )
 }
