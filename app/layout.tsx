@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Poppins, Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar'
+import WhatsAppWidget from '@/components/WhatsAppWidget'
 import './globals.css'
 
 const poppins = Poppins({
@@ -148,6 +149,7 @@ export default function RootLayout({
       <body className="antialiased bg-surface-light text-text-primary transition-colors duration-300">
         <Navbar />
         {children}
+        <WhatsAppWidget />
       </body>
     </html>
   )
