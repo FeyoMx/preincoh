@@ -23,112 +23,116 @@ export default function Hero() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
-        ease: [0.34, 1.56, 0.64, 1], // Spring physics
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1], // Smooth cubic bezier
       },
     },
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-slate-50 to-blue-50 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center bg-surface-light relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-orange-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
-      <div className="absolute -bottom-8 left-20 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-orange-100/40 rounded-full mix-blend-multiply filter blur-[100px] opacity-30 animate-blob" />
+      <div className="absolute -bottom-32 -left-32 w-[600px] h-[600px] bg-blue-100/40 rounded-full mix-blend-multiply filter blur-[100px] opacity-30 animate-blob animation-delay-2000" />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[url('/grid.svg')] opacity-[0.03]" />
 
       <motion.div
-        className="container-custom relative z-10 py-16 md:py-24 lg:py-32"
+        className="container-custom relative z-10 py-20 md:py-32 lg:py-40"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left side - Content */}
-          <motion.div className="flex flex-col justify-center space-y-6" variants={itemVariants}>
-            <motion.div variants={itemVariants} className="inline-flex items-center gap-2 w-fit">
-              <span className="flex h-2 w-2 rounded-full bg-accent-orange animate-pulse" />
-              <span className="text-sm font-semibold text-accent-orange uppercase tracking-wider">
-                Bienvenido a Preincoh
+          <motion.div className="flex flex-col justify-center space-y-8" variants={itemVariants}>
+            <motion.div variants={itemVariants} className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-orange-50 border border-orange-100 w-fit">
+              <span className="flex h-2.5 w-2.5 rounded-full bg-accent-orange animate-pulse" />
+              <span className="text-sm font-bold text-accent-orange uppercase tracking-wider">
+                Líderes en Hidalgo
               </span>
             </motion.div>
 
             <motion.h1
               variants={itemVariants}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+              className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight"
             >
-              <span className="text-gradient">
-                Solidez con la eficiencia
+              <span className="text-primary-dark">
+                Solidez con la
               </span>
               <br />
-              <span className="text-primary-dark">
-                que tu proyecto necesita
+              <span className="text-gradient">
+                eficiencia que necesitas
               </span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-lg"
+              className="text-lg md:text-xl text-text-secondary leading-relaxed max-w-lg font-medium"
             >
-              Prefabricados e Insumos para la Construcción de Hidalgo.
+              Prefabricados e Insumos para la Construcción. Calidad certificada, entrega puntual y asesoría experta para tu obra.
             </motion.p>
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 pt-4"
+              className="flex flex-col sm:flex-row gap-5 pt-4"
             >
               <Link
                 href="#contacto"
-                className="btn btn-primary ripple min-h-[44px] text-base md:text-lg"
+                className="btn btn-primary animate-pulse-soft text-lg min-h-[56px] px-8"
               >
                 Solicita Asesoría Gratuita
               </Link>
               <Link
                 href="#servicios"
-                className="btn btn-outline min-h-[44px] text-base md:text-lg"
+                className="btn btn-outline text-lg min-h-[56px] px-8"
               >
-                Conoce Nuestros Servicios
+                Ver Catálogo
               </Link>
             </motion.div>
 
             {/* Trust indicators */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap items-center gap-6 pt-8 border-t border-gray-200"
+              className="flex flex-wrap items-center gap-8 pt-8 border-t border-gray-100"
             >
               <div>
-                <p className="text-2xl md:text-3xl font-bold text-gradient">+500</p>
-                <p className="text-sm text-gray-600">Proyectos Exitosos</p>
+                <p className="text-3xl md:text-4xl font-bold text-primary-dark">+500</p>
+                <p className="text-sm font-medium text-text-muted uppercase tracking-wide">Proyectos</p>
               </div>
-              <div className="w-px h-12 bg-gray-300" />
+              <div className="w-px h-12 bg-gray-200" />
               <div>
-                <p className="text-2xl md:text-3xl font-bold text-gradient">100%</p>
-                <p className="text-sm text-gray-600">Satisfacción Garantizada</p>
+                <p className="text-3xl md:text-4xl font-bold text-primary-dark">15+</p>
+                <p className="text-sm font-medium text-text-muted uppercase tracking-wide">Años Exp.</p>
+              </div>
+              <div className="w-px h-12 bg-gray-200" />
+              <div>
+                <p className="text-3xl md:text-4xl font-bold text-primary-dark">100%</p>
+                <p className="text-sm font-medium text-text-muted uppercase tracking-wide">Garantía</p>
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Right side - Logo */}
+          {/* Right side - Logo & Visual */}
           <motion.div
             variants={itemVariants}
-            className="flex justify-center items-center"
+            className="flex justify-center items-center relative"
           >
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-100/30 to-orange-100/30 rounded-full filter blur-3xl transform scale-110" />
+
             <motion.div
               animate={{ y: [0, -20, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-full max-w-md p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-orange-50 shadow-2xl backdrop-blur-sm backdrop-filter"
-              style={{
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
-              }}
+              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+              className="glass-panel w-full max-w-lg p-12 rounded-3xl relative z-10"
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent-orange/20 to-primary-dark/20 rounded-2xl blur-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-accent-orange/5 to-primary-dark/5 rounded-2xl blur-xl" />
                 <Image
                   src="/logopreincoh.png"
                   alt="Preincoh Logo - Prefabricados e Insumos para la Construcción de Hidalgo"
-                  width={500}
-                  height={500}
+                  width={600}
+                  height={600}
                   priority
-                  className="logo-image w-full h-auto mix-blend-multiply relative z-10"
+                  className="logo-image w-full h-auto relative z-10 drop-shadow-2xl"
                 />
               </div>
             </motion.div>
@@ -138,16 +142,13 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <motion.div
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:flex"
-        role="button"
-        aria-label="Desplázate hacia abajo para ver más contenido"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 10, 0] }}
+        transition={{ delay: 1, duration: 2, repeat: Infinity }}
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 hidden md:flex flex-col items-center gap-2 cursor-pointer"
       >
-        <div className="flex flex-col items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
-          <span className="text-sm text-gray-600 font-medium">Desplázate para conocer más</span>
-          <ChevronDownIcon className="w-6 h-6 text-accent-orange" aria-hidden="true" />
-        </div>
+        <span className="text-xs font-bold tracking-widest text-text-muted uppercase">Descubre Más</span>
+        <ChevronDownIcon className="w-6 h-6 text-accent-orange" />
       </motion.div>
     </section>
   )

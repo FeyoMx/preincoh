@@ -69,25 +69,30 @@ export default function Services() {
   }
 
   return (
-    <section className="py-24 md:py-32 bg-gradient-to-b from-gray-50 to-white" id="servicios">
-      <div className="container-custom">
+    <section className="py-24 md:py-32 bg-surface-off-white relative" id="servicios">
+      <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.02]" />
+
+      <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-dark mb-4">
-            Nuestros Servicios
+          <span className="text-accent-orange font-bold tracking-wider uppercase text-sm mb-3 block">
+            Nuestras Soluciones
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold text-primary-dark mb-6">
+            Servicios Integrales
           </h2>
-          <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-            Soluciones completas en prefabricados e insumos para construcción
+          <p className="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
+            Soluciones completas en prefabricados e insumos para construcción, diseñadas para maximizar la eficiencia de tu obra.
           </p>
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -103,62 +108,55 @@ export default function Services() {
                 variants={cardVariants}
                 whileHover={{
                   y: -8,
-                  scale: isHighlight ? 1.03 : 1.02,
                   transition: { duration: 0.3, ease: 'easeOut' }
                 }}
-                className={`group relative p-8 rounded-xl border-2 transition-all duration-300 ${
-                  isHighlight
-                    ? 'col-span-1 sm:col-span-2 lg:col-span-1 lg:row-span-1 border-accent-orange bg-gradient-to-br from-orange-50 via-orange-100 to-orange-50 shadow-xl hover:shadow-2xl'
-                    : 'border-gray-200 bg-white hover:border-gray-300 shadow-md hover:shadow-xl'
-                }`}
+                className={`group relative p-8 rounded-2xl transition-all duration-300 flex flex-col h-full ${isHighlight
+                    ? 'bg-white border-2 border-accent-orange shadow-orange'
+                    : 'bg-white border border-gray-100 shadow-sm hover:shadow-lg hover:border-orange-100'
+                  }`}
               >
                 {/* Highlight Badge */}
                 {isHighlight && (
-                  <div className="absolute -top-3 -right-3 bg-accent-orange text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-accent-orange text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-lg z-20">
                     <SparklesIcon className="w-4 h-4" aria-hidden="true" />
-                    Destacado
+                    Más Popular
                   </div>
                 )}
 
                 {/* Icon Container */}
-                <div className="mb-6 flex items-center justify-center">
+                <div className="mb-6">
                   <div
-                    className={`p-4 rounded-2xl shadow-md group-hover:shadow-lg transition-all duration-300 ${
-                      isHighlight
-                        ? 'bg-accent-orange text-white'
-                        : 'bg-gray-50 text-primary-dark group-hover:bg-gray-100'
-                    }`}
+                    className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 ${isHighlight
+                        ? 'bg-orange-50 text-accent-orange'
+                        : 'bg-blue-50 text-primary-dark group-hover:bg-orange-50 group-hover:text-accent-orange'
+                      }`}
                   >
                     <IconComponent
-                      className={`${isHighlight ? 'w-14 h-14' : 'w-12 h-12'}`}
-                      strokeWidth={2}
+                      className="w-8 h-8"
+                      strokeWidth={1.5}
                       aria-hidden="true"
                     />
                   </div>
                 </div>
 
                 {/* Content */}
-                <h3
-                  className={`text-xl font-bold mb-3 text-center ${
-                    isHighlight ? 'text-accent-orange text-2xl' : 'text-primary-dark'
-                  }`}
-                >
+                <h3 className="text-xl font-bold mb-3 text-primary-dark group-hover:text-accent-orange transition-colors">
                   {service.title}
                 </h3>
-                <p className={`leading-relaxed text-center ${
-                  isHighlight ? 'text-gray-800 text-base' : 'text-gray-700'
-                }`}>
+                <p className="text-text-secondary leading-relaxed mb-6 flex-grow">
                   {service.description}
                 </p>
 
-                {/* Highlight Footer */}
-                {isHighlight && (
-                  <div className="mt-6 pt-6 border-t-2 border-orange-200">
-                    <p className="text-sm font-semibold text-accent-orange text-center uppercase tracking-wide">
-                      100% Sin Costo - Contáctanos Ahora
-                    </p>
-                  </div>
-                )}
+                {/* Learn More Link (Implicit) */}
+                <div className={`mt-auto pt-6 border-t ${isHighlight ? 'border-orange-100' : 'border-gray-100'}`}>
+                  <span className={`text-sm font-semibold flex items-center gap-2 ${isHighlight ? 'text-accent-orange' : 'text-primary-dark group-hover:text-accent-orange'
+                    } transition-colors`}>
+                    Saber más
+                    <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                </div>
               </motion.div>
             )
           })}
@@ -170,15 +168,20 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          className="mt-20 text-center"
         >
-          <a
-            href="#contacto"
-            className="inline-flex items-center gap-3 btn btn-primary text-lg px-8 py-4 shadow-xl hover:shadow-2xl min-h-[56px]"
-          >
-            <SparklesIcon className="w-6 h-6" aria-hidden="true" />
-            Solicita tu Asesoría Gratuita
-          </a>
+          <div className="inline-block p-1 rounded-2xl bg-white shadow-lg border border-gray-100">
+            <a
+              href="#contacto"
+              className="inline-flex items-center gap-3 btn btn-primary text-lg px-10 py-4 rounded-xl"
+            >
+              <SparklesIcon className="w-6 h-6" aria-hidden="true" />
+              Solicita tu Asesoría Gratuita
+            </a>
+          </div>
+          <p className="mt-4 text-sm text-text-muted">
+            Respuesta en menos de 24 horas
+          </p>
         </motion.div>
       </div>
     </section>

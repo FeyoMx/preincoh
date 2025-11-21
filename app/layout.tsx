@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Poppins, Inter } from 'next/font/google'
-import ThemeToggle from '@/components/ThemeToggle'
+import Navbar from '@/components/Navbar'
 import './globals.css'
 
 const poppins = Poppins({
@@ -145,8 +145,8 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-300">
-        <ThemeToggle />
+      <body className="antialiased bg-surface-light text-text-primary transition-colors duration-300">
+        <Navbar />
         {children}
       </body>
     </html>

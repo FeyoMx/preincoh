@@ -65,208 +65,187 @@ export default function ContactForm() {
     }
   }
 
+  const inputClasses = "w-full px-4 py-3.5 min-h-[50px] bg-surface-off-white border border-gray-200 rounded-xl focus:bg-white focus:border-accent-orange focus:ring-4 focus:ring-orange-100 transition-all duration-300 outline-none text-text-primary placeholder:text-text-muted"
+  const errorInputClasses = "border-red-300 focus:border-red-500 focus:ring-red-100 bg-red-50/30"
+  const labelClasses = "block text-sm font-semibold text-text-primary mb-2 ml-1"
+
   return (
-    <section className="py-24 md:py-32 bg-gradient-to-b from-gray-50 to-white" id="contacto">
-      <div className="container-custom">
+    <section className="py-24 md:py-32 bg-surface-light relative overflow-hidden" id="contacto">
+      {/* Decorative background */}
+      <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid.svg')] opacity-[0.03]" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full mix-blend-multiply filter blur-[80px] opacity-40" />
+      <div className="absolute top-20 left-20 w-[300px] h-[300px] bg-orange-50/50 rounded-full mix-blend-multiply filter blur-[60px] opacity-40" />
+
+      <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="max-w-3xl mx-auto"
         >
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary-dark mb-4">
+            <span className="text-accent-orange font-bold tracking-wider uppercase text-sm mb-3 block">
+              Contáctanos
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary-dark mb-6">
               Solicita tu Asesoría Gratuita
             </h2>
-            <p className="text-xl text-gray-700">
-              Contacta con nuestro equipo de expertos ahora mismo
+            <p className="text-xl text-text-secondary leading-relaxed">
+              ¿Tienes un proyecto en mente? Nuestro equipo de expertos está listo para ayudarte a hacerlo realidad.
             </p>
           </div>
 
           <motion.form
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-6 bg-white p-8 md:p-10 rounded-2xl border-2 border-gray-200 shadow-xl"
+            className="space-y-6 bg-white p-8 md:p-12 rounded-3xl border border-gray-100 shadow-lg relative overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            {/* Nombre */}
-            <div>
-              <label
-                htmlFor="nombre"
-                className="block text-sm font-semibold text-primary-dark mb-2"
-              >
-                Nombre Completo <span className="text-accent-orange">*</span>
-              </label>
-              <input
-                id="nombre"
-                type="text"
-                {...register('nombre')}
-                className={`w-full px-4 py-3 md:py-3.5 min-h-[44px] border-2 rounded-lg transition-all duration-200 ${
-                  errors.nombre
-                    ? 'border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-200'
-                    : 'border-gray-300 focus:border-accent-orange focus:ring-2 focus:ring-orange-200'
-                } focus:outline-none`}
-                placeholder="Tu nombre"
-                aria-describedby={errors.nombre ? 'nombre-error' : undefined}
-                aria-invalid={errors.nombre ? 'true' : 'false'}
-              />
-              {errors.nombre && (
-                <p id="nombre-error" className="text-red-500 text-sm mt-1.5 flex items-center gap-1">
-                  <ExclamationCircleIcon className="w-4 h-4" aria-hidden="true" />
-                  {errors.nombre.message}
-                </p>
-              )}
-            </div>
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary-dark to-accent-orange" />
 
-            {/* Email */}
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-semibold text-primary-dark mb-2"
-              >
-                Correo Electrónico <span className="text-accent-orange">*</span>
-              </label>
-              <input
-                id="email"
-                type="email"
-                {...register('email')}
-                className={`w-full px-4 py-3 md:py-3.5 min-h-[44px] border-2 rounded-lg transition-all duration-200 ${
-                  errors.email
-                    ? 'border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-200'
-                    : 'border-gray-300 focus:border-accent-orange focus:ring-2 focus:ring-orange-200'
-                } focus:outline-none`}
-                placeholder="tu@email.com"
-                aria-describedby={errors.email ? 'email-error' : undefined}
-                aria-invalid={errors.email ? 'true' : 'false'}
-              />
-              {errors.email && (
-                <p id="email-error" className="text-red-500 text-sm mt-1.5 flex items-center gap-1">
-                  <ExclamationCircleIcon className="w-4 h-4" aria-hidden="true" />
-                  {errors.email.message}
-                </p>
-              )}
-            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Nombre */}
+              <div className="md:col-span-2">
+                <label htmlFor="nombre" className={labelClasses}>
+                  Nombre Completo <span className="text-accent-orange">*</span>
+                </label>
+                <input
+                  id="nombre"
+                  type="text"
+                  {...register('nombre')}
+                  className={`${inputClasses} ${errors.nombre ? errorInputClasses : ''}`}
+                  placeholder="Tu nombre completo"
+                  aria-invalid={errors.nombre ? 'true' : 'false'}
+                />
+                {errors.nombre && (
+                  <p className="text-red-500 text-sm mt-2 flex items-center gap-1.5 font-medium animate-fade-in">
+                    <ExclamationCircleIcon className="w-4 h-4" />
+                    {errors.nombre.message}
+                  </p>
+                )}
+              </div>
 
-            {/* Teléfono */}
-            <div>
-              <label
-                htmlFor="telefono"
-                className="block text-sm font-semibold text-primary-dark mb-2"
-              >
-                Teléfono <span className="text-accent-orange">*</span>
-              </label>
-              <input
-                id="telefono"
-                type="tel"
-                {...register('telefono')}
-                className={`w-full px-4 py-3 md:py-3.5 min-h-[44px] border-2 rounded-lg transition-all duration-200 ${
-                  errors.telefono
-                    ? 'border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-200'
-                    : 'border-gray-300 focus:border-accent-orange focus:ring-2 focus:ring-orange-200'
-                } focus:outline-none`}
-                placeholder="+52 (771) 123 4567"
-                aria-describedby={errors.telefono ? 'telefono-error' : undefined}
-                aria-invalid={errors.telefono ? 'true' : 'false'}
-              />
-              {errors.telefono && (
-                <p id="telefono-error" className="text-red-500 text-sm mt-1.5 flex items-center gap-1">
-                  <ExclamationCircleIcon className="w-4 h-4" aria-hidden="true" />
-                  {errors.telefono.message}
-                </p>
-              )}
-            </div>
+              {/* Email */}
+              <div>
+                <label htmlFor="email" className={labelClasses}>
+                  Correo Electrónico <span className="text-accent-orange">*</span>
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  {...register('email')}
+                  className={`${inputClasses} ${errors.email ? errorInputClasses : ''}`}
+                  placeholder="tu@email.com"
+                  aria-invalid={errors.email ? 'true' : 'false'}
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-2 flex items-center gap-1.5 font-medium animate-fade-in">
+                    <ExclamationCircleIcon className="w-4 h-4" />
+                    {errors.email.message}
+                  </p>
+                )}
+              </div>
 
-            {/* Empresa */}
-            <div>
-              <label
-                htmlFor="empresa"
-                className="block text-sm font-semibold text-primary-dark mb-2"
-              >
-                Empresa o Proyecto
-              </label>
-              <input
-                id="empresa"
-                type="text"
-                {...register('empresa')}
-                className="w-full px-4 py-3 md:py-3.5 min-h-[44px] border-2 border-gray-300 rounded-lg focus:outline-none focus:border-accent-orange focus:ring-2 focus:ring-orange-200 transition-all duration-200"
-                placeholder="Nombre de tu empresa o proyecto (opcional)"
-              />
-            </div>
+              {/* Teléfono */}
+              <div>
+                <label htmlFor="telefono" className={labelClasses}>
+                  Teléfono <span className="text-accent-orange">*</span>
+                </label>
+                <input
+                  id="telefono"
+                  type="tel"
+                  {...register('telefono')}
+                  className={`${inputClasses} ${errors.telefono ? errorInputClasses : ''}`}
+                  placeholder="+52 (771) 123 4567"
+                  aria-invalid={errors.telefono ? 'true' : 'false'}
+                />
+                {errors.telefono && (
+                  <p className="text-red-500 text-sm mt-2 flex items-center gap-1.5 font-medium animate-fade-in">
+                    <ExclamationCircleIcon className="w-4 h-4" />
+                    {errors.telefono.message}
+                  </p>
+                )}
+              </div>
 
-            {/* Tipo de Cliente */}
-            <div>
-              <label
-                htmlFor="tipoCliente"
-                className="block text-sm font-semibold text-primary-dark mb-2"
-              >
-                ¿Cuál es tu perfil? <span className="text-accent-orange">*</span>
-              </label>
-              <select
-                id="tipoCliente"
-                {...register('tipoCliente')}
-                className={`w-full px-4 py-3 md:py-3.5 min-h-[44px] border-2 rounded-lg transition-all duration-200 ${
-                  errors.tipoCliente
-                    ? 'border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-200'
-                    : 'border-gray-300 focus:border-accent-orange focus:ring-2 focus:ring-orange-200'
-                } focus:outline-none`}
-                aria-describedby={errors.tipoCliente ? 'tipoCliente-error' : undefined}
-                aria-invalid={errors.tipoCliente ? 'true' : 'false'}
-              >
-                <option value="">Selecciona una opción</option>
-                <option value="arquitecto">Arquitecto / Empresa Constructora</option>
-                <option value="autoconstruccion">Autoconstrucción / Dueño de Casa</option>
-                <option value="otra">Otro</option>
-              </select>
-              {errors.tipoCliente && (
-                <p id="tipoCliente-error" className="text-red-500 text-sm mt-1.5 flex items-center gap-1">
-                  <ExclamationCircleIcon className="w-4 h-4" aria-hidden="true" />
-                  {errors.tipoCliente.message}
-                </p>
-              )}
-            </div>
+              {/* Empresa */}
+              <div className="md:col-span-2">
+                <label htmlFor="empresa" className={labelClasses}>
+                  Empresa o Proyecto
+                </label>
+                <input
+                  id="empresa"
+                  type="text"
+                  {...register('empresa')}
+                  className={inputClasses}
+                  placeholder="Nombre de tu empresa o proyecto (opcional)"
+                />
+              </div>
 
-            {/* Mensaje */}
-            <div>
-              <label
-                htmlFor="mensaje"
-                className="block text-sm font-semibold text-primary-dark mb-2"
-              >
-                ¿Cuéntanos sobre tu proyecto? <span className="text-accent-orange">*</span>
-              </label>
-              <textarea
-                id="mensaje"
-                {...register('mensaje')}
-                rows={5}
-                className={`w-full px-4 py-3 md:py-3.5 border-2 rounded-lg transition-all duration-200 resize-none ${
-                  errors.mensaje
-                    ? 'border-red-400 focus:border-red-500 focus:ring-2 focus:ring-red-200'
-                    : 'border-gray-300 focus:border-accent-orange focus:ring-2 focus:ring-orange-200'
-                } focus:outline-none`}
-                placeholder="Describe brevemente tu proyecto, necesidades y presupuesto..."
-                aria-describedby={errors.mensaje ? 'mensaje-error' : undefined}
-                aria-invalid={errors.mensaje ? 'true' : 'false'}
-              />
-              {errors.mensaje && (
-                <p id="mensaje-error" className="text-red-500 text-sm mt-1.5 flex items-center gap-1">
-                  <ExclamationCircleIcon className="w-4 h-4" aria-hidden="true" />
-                  {errors.mensaje.message}
-                </p>
-              )}
+              {/* Tipo de Cliente */}
+              <div className="md:col-span-2">
+                <label htmlFor="tipoCliente" className={labelClasses}>
+                  ¿Cuál es tu perfil? <span className="text-accent-orange">*</span>
+                </label>
+                <div className="relative">
+                  <select
+                    id="tipoCliente"
+                    {...register('tipoCliente')}
+                    className={`${inputClasses} ${errors.tipoCliente ? errorInputClasses : ''} appearance-none cursor-pointer`}
+                    aria-invalid={errors.tipoCliente ? 'true' : 'false'}
+                  >
+                    <option value="">Selecciona una opción</option>
+                    <option value="arquitecto">Arquitecto / Empresa Constructora</option>
+                    <option value="autoconstruccion">Autoconstrucción / Dueño de Casa</option>
+                    <option value="otra">Otro</option>
+                  </select>
+                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none text-text-muted">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
+                {errors.tipoCliente && (
+                  <p className="text-red-500 text-sm mt-2 flex items-center gap-1.5 font-medium animate-fade-in">
+                    <ExclamationCircleIcon className="w-4 h-4" />
+                    {errors.tipoCliente.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Mensaje */}
+              <div className="md:col-span-2">
+                <label htmlFor="mensaje" className={labelClasses}>
+                  ¿Cuéntanos sobre tu proyecto? <span className="text-accent-orange">*</span>
+                </label>
+                <textarea
+                  id="mensaje"
+                  {...register('mensaje')}
+                  rows={4}
+                  className={`${inputClasses} resize-none`}
+                  placeholder="Describe brevemente tu proyecto, necesidades y presupuesto..."
+                  aria-invalid={errors.mensaje ? 'true' : 'false'}
+                />
+                {errors.mensaje && (
+                  <p className="text-red-500 text-sm mt-2 flex items-center gap-1.5 font-medium animate-fade-in">
+                    <ExclamationCircleIcon className="w-4 h-4" />
+                    {errors.mensaje.message}
+                  </p>
+                )}
+              </div>
             </div>
 
             {/* Status Messages */}
             {submitStatus === 'success' && (
               <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="p-4 bg-green-50 border-2 border-green-300 text-green-800 rounded-lg flex items-center gap-3"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                className="p-4 bg-green-50 border border-green-200 text-green-800 rounded-xl flex items-center gap-3"
                 role="alert"
-                aria-live="polite"
               >
-                <CheckCircleIcon className="w-6 h-6 flex-shrink-0" aria-hidden="true" />
+                <CheckCircleIcon className="w-6 h-6 flex-shrink-0 text-green-600" />
                 <span className="font-medium">
                   ¡Mensaje enviado correctamente! Nos pondremos en contacto pronto.
                 </span>
@@ -275,13 +254,12 @@ export default function ContactForm() {
 
             {submitStatus === 'error' && (
               <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="p-4 bg-red-50 border-2 border-red-300 text-red-800 rounded-lg flex items-center gap-3"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                className="p-4 bg-red-50 border border-red-200 text-red-800 rounded-xl flex items-center gap-3"
                 role="alert"
-                aria-live="polite"
               >
-                <ExclamationCircleIcon className="w-6 h-6 flex-shrink-0" aria-hidden="true" />
+                <ExclamationCircleIcon className="w-6 h-6 flex-shrink-0 text-red-600" />
                 <span className="font-medium">
                   Error al enviar el mensaje. Por favor intenta de nuevo.
                 </span>
@@ -292,25 +270,25 @@ export default function ContactForm() {
             <motion.button
               type="submit"
               disabled={isSubmitting}
-              whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-              whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-              className="w-full btn btn-primary font-semibold py-4 min-h-[50px] rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 flex items-center justify-center gap-3 text-base md:text-lg shadow-lg hover:shadow-xl"
+              whileHover={{ scale: isSubmitting ? 1 : 1.01 }}
+              whileTap={{ scale: isSubmitting ? 1 : 0.99 }}
+              className="w-full btn btn-primary text-lg py-4 rounded-xl disabled:opacity-70 disabled:cursor-not-allowed shadow-orange hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-3 mt-4"
             >
               {isSubmitting ? (
                 <>
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" aria-hidden="true" />
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
                   Enviando...
                 </>
               ) : (
                 <>
-                  <PaperAirplaneIcon className="w-5 h-5" aria-hidden="true" />
-                  Enviar Solicitud de Asesoría
+                  <PaperAirplaneIcon className="w-5 h-5" />
+                  Enviar Solicitud
                 </>
               )}
             </motion.button>
 
-            <p className="text-sm text-gray-600 text-center">
-              Nos comprometemos a responder en menos de 24 horas hábiles.
+            <p className="text-sm text-text-muted text-center mt-4">
+              Tus datos están seguros. Respondemos en menos de 24 horas hábiles.
             </p>
           </motion.form>
         </motion.div>
