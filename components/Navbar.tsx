@@ -34,11 +34,11 @@ export default function Navbar() {
                 animate={{ y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <div className={`mx-auto px-6 md:px-12 transition-all duration-300 ${isScrolled ? 'max-w-7xl' : 'max-w-[1400px]'
+                <div className={`mx-auto px-4 md:px-12 transition-all duration-300 ${isScrolled ? 'max-w-7xl' : 'max-w-[1400px]'
                     }`}>
-                    <div className={`relative rounded-2xl px-6 py-3 flex items-center justify-between transition-all duration-300 ${isScrolled
-                            ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg border border-white/20'
-                            : 'bg-transparent'
+                    <div className={`relative rounded-2xl px-4 md:px-6 py-3 flex items-center justify-between transition-all duration-300 ${isScrolled
+                        ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg border border-white/20'
+                        : 'bg-transparent'
                         }`}>
 
                         {/* Logo */}
