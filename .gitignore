@@ -120,3 +120,6 @@ docs/
 !scripts/
 !README.md
 !next-env.d.ts
+
+# ===== LOCAL UTILITIES =====
+pdf-generator/
